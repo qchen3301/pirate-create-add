@@ -1,7 +1,8 @@
 //your code below
-let express = require("express");
-let router = express.Router();
-let pirates = require('../models/pirates.js');
+let express = require("express")
+let router = express.Router()
+let pirates = require('../models/pirates.js')
+
 
 //all routes for /pirate
 router.get('/', (req,res)=> {
@@ -18,6 +19,16 @@ router.get('/', (req,res)=> {
 
 router.get('/new', (req, res) => {
     res.render('new')
+})
+
+router.post('/', (req,res)=> {
+    const addPirate = req.body
+    /*  pirates - the variable storing data from models/pirates.js
+        newPirates - the <form> in new.hbs's action parameter
+        push() - a JS method to append data to an array 
+        addPirate - the const instansiated above that holds the value req.body*/
+    pirates.newPirates.push(addPirate)
+    res.redirect('/') //after pushing, redirect to index
 })
 
 router.get('/:id', (req, res)=> {

@@ -28,7 +28,7 @@ router.post('/', (req,res)=> {
         push() - a JS method to append data to an array 
         addPirate - the const instansiated above that holds the value req.body*/
     pirates.newPirates.push(addPirate)
-    res.redirect('/') //after pushing, redirect to index
+    res.redirect('/pirates') //after pushing, redirect to index
 })
 
 router.get('/:id', (req, res)=> {
